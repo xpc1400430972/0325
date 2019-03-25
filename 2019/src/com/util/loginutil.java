@@ -12,20 +12,17 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 public class loginutil {
-	//È«¾Ö±äÁ¿
+	//å…¨å±€å˜é‡
 		public static String url;
-		public static WebDriver driver;    //static ¾²Ì¬ public¶¯Ì¬£¨È«¾Ö¡¢¹«ÓĞµÄ£©
-	//Ïàµ±ÓÚÔ¤ÖÃÌõ¼ş
+		public static WebDriver driver; 
+	//ç›¸å½“äºé¢„ç½®æ¡ä»¶
 		@BeforeClass
 		public void Class1() throws Exception {
-	//¶¨Òåä¯ÀÀÆ÷
-			//System.setProperty("webdriver.chrome.driver", "./tools/chromedriver.exe");
-			//driver=new ChromeDriver();
+	//å®šä¹‰æµè§ˆå™¨
+			System.setProperty("webdriver.chrome.driver", "./tools/chromedriver.exe");
+			driver=new ChromeDriver();
 			
-			DesiredCapabilities a=DesiredCapabilities.chrome();
-			driver=new RemoteWebDriver(new URL("http://192.168.1.178:7977/wd/hub"),a);
-			//driver=new ChromeDriver();
-	//±»²âurl
+	//è¢«æµ‹url
 			url="http://localhost:8080/examsys/login.thtml";
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		}
@@ -34,7 +31,7 @@ public class loginutil {
 		
 		@AfterClass
 		public void thr() {
-			//driver.close();
+			driver.close();
 		
 	}
 
